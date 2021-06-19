@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.tfont {
+  font-family: 'Lato', sans-serif;
+}
+.tfont2 {
+  font-family: 'Varela Round', sans-serif;
+}
+.tfont3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
