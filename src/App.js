@@ -1,13 +1,12 @@
 import './App.css';
 import NavBar from './components/navbar/NavBar';
-import ListaNovedades from './components/listaNovedades/ListaNovedades';
+import { ItemsContainer } from './components/itemsContainer/ItemsContainer';
 
 function App() {
-  const saludo = "Bienvenidos a nuestra tienda";
   return (
     <div className="App">
       <NavBar />
-      <ListaNovedades saludo ={saludo}/>
+      <ItemsContainer titleSeccion="Novedades del mes"/>
     </div>
   );
 }

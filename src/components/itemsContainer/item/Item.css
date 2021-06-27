@@ -1,0 +1,16 @@
+.contentBook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 19%;
+}
+.contentBook img
+{
+    max-height: 180px;
+    border-radius: 7px;
+    border: solid 1px rgb(231, 231, 231);
+}
+.contentBook p {
+    max-width: 112px;
+    text-align: center;
+}

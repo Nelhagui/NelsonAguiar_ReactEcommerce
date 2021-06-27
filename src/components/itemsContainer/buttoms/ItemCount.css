@@ -1,0 +1,15 @@
+.containerBotonCount{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+.btnCount{
+    border: solid 1px rgb(199, 199, 199);
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+}
+.containerBotonCount p {
+    margin: 0 18px;
+}
