@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { listData } from '../itemList/ItemListComponent';
-import { ItemCount } from '../buttoms/ItemCount';
-import './Item.css';
+import React from 'react'
+import { ItemCount } from '../itemCount/ItemCount';
+import './Item.css'
 
-export const Item = () => {
-    const [list, setList] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setList(listData);
-        }, 2000);
-    }, [])
-
+export const Item = ({data}) => {
     return (
         <>
-            {list.map((item)=>{
-                return (
-                    <div key={item.id} className="contentBook">
-                        <img src={item.image} alt="" />
-                        <p>{item.name}</p>
-                        <ItemCount stock={item.stock}/>
-                    </div>
-                )
-            })}
+            <div className="contentBook">
+                <img src={data.image} alt="" />
+                <p>{data.name}</p>
+                <ItemCount stock={data.stock}/>
+            </div>
         </>
     )
 }
-
