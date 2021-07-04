@@ -17,8 +17,8 @@ const NavBar = () => {
 					<Link to="/" className="nav-item nav-link tfont3">
 						Home
 					</Link>
-					<Link to="/about" className="nav-item nav-link tfont3">
-						About
+					<Link to="/category/3" className="nav-item nav-link tfont3">
+						Best sellers
 					</Link>
 					<Link to="/contac" className="nav-item nav-link tfont3">
 						Contact

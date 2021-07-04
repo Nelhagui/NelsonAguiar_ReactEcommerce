@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Item } from '../item/Item';
 
 export const ItemList = ({items}) => {
+    // console.log(items);
+    // 
     return (
         <>
             {items.map((item)=>{
