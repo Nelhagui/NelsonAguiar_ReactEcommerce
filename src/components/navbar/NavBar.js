@@ -4,7 +4,6 @@ import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-	console.log(2)
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
 			<div className="container">
