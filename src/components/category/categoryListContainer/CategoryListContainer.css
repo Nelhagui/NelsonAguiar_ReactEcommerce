@@ -1,0 +1,17 @@
+.categoryListContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.categoryListContainer .containerBooks {
+    width: 70%;
+    margin-top: 10px !important;
+    justify-content: space-evenly !important;
+}
+
+.categoryListContainer .containerNavListCategory {
+    width: 22%;
+    margin-top: 10px !important;
+}

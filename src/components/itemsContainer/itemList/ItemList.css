@@ -7,7 +7,7 @@
 .contentBook img
 {
     max-height: 180px;
-    border-radius: 7px;
+    border-radius: 3px;
     border: solid 1px rgb(231, 231, 231);
 }
 .contentBook p {

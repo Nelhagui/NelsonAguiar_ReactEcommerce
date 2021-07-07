@@ -5,12 +5,14 @@ import { Home } from './views/Home/Home';
 import { About } from './views/About/About';
 import { ViewItemDetail } from './views/ViewItemDetail/ViewItemDetail';
 import { Category } from './views/Category/Category';
+import { NavBarCategory } from './components/navBarCategory/NavBarCategory';
 
 function App() {
   return (
     <Router>
       <div className="App">
 <NavBar />
+<NavBarCategory/>
 <Switch>
     <Route path='/' exact component={Home}/>  
     <Route path='/about'  component={About}/>  

@@ -1,0 +1,11 @@
+.containerHeader {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 3rem;
+    height: 25vh;
+    background-color: #e4f1f5;
+}
+
+.containerHeader p {
+    width: 50%;
+}

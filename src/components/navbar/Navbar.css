@@ -2,3 +2,11 @@
   width: 1.5rem !important;
   margin-right: 2rem;
 }
+nav.navbar.navbar-expand-lg.containerNavBar {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.containerNavBar a {
+  text-decoration: none;
+  color: black !important;
+}

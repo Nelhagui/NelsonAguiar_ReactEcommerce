@@ -14,9 +14,7 @@ export const ItemsListContainer = ({titleSeccion}) => {
     return (
         <>
             <h1>{titleSeccion}</h1>
-            <div className="containerBooks">
-                <ItemList items={data}/>
-            </div>
+            <ItemList items={data} />
         </>
         
     )
