@@ -7,17 +7,16 @@ import { ViewItemDetail } from './views/ViewItemDetail/ViewItemDetail';
 import { Category } from './views/Category/Category';
 
 function App() {
-
   return (
     <Router>
       <div className="App">
-        <NavBar />
-        <Switch>
-            <Route path='/' exact component={Home}/>  
-            <Route path='/about'  component={About}/>  
-            <Route path='/detail/:id'  component={ViewItemDetail}/>  
-            <Route path='/category/:categoryId' exact  component={Category}/>  
-        </Switch>
+<NavBar />
+<Switch>
+    <Route path='/' exact component={Home}/>  
+    <Route path='/about'  component={About}/>  
+    <Route path='/detail/:id'  component={ViewItemDetail}/>  
+        <Route path='/category/:categoryId' exact  component={Category}/>  
+    </Switch>
       </div>
     </Router>
   );

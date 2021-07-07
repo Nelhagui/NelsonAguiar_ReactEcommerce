@@ -1,19 +1,16 @@
-import { Link } from 'react-router-dom';
-import { Item } from '../item/Item';
+import { Link } from "react-router-dom";
+import { Item } from "../item/Item";
 
-export const ItemList = ({items}) => {
-    // console.log(items);
-    // 
+export const ItemList = ({ items }) => {
     return (
         <>
-            {items.map((item)=>{
+            {items.map((item) => {
                 return (
                     <Link to={`/detail/${item.id}`} key={item.id}>
-                        <Item data={item}/>
+                        <Item data={item} />
                     </Link>
-                )
+                );
             })}
         </>
-    )
-}
-
+    );
+};

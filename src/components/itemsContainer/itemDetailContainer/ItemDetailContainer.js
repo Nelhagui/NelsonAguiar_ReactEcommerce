@@ -9,18 +9,14 @@ export const ItemDetailContainer = ({match}) => {
             .then((response) => response.json())
             .then((res) => findMatch(res))
 
-        //FUNCION TEMPORAL HASTA ARMAR API CON "/id"
         const findMatch = (res) => 
         {
-            var results = res.filter(function (detail) { return +detail.id === +match.params.id; });
-            var firstObj = (results.length > 0) ? results[0] : null;
+            const results = res.filter(function (detail) { return +detail.id === +match.params.id; });
+            const firstObj = (results.length > 0) ? results[0] : null;
             setDetailMatch(firstObj);
         }
-        //fin
-
     }, [match])
-
-
+    
     return (
         <div>
             <ItemDetail data={detailMatch}/>

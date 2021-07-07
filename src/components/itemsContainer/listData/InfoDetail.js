@@ -1,1 +1,0 @@
-export const itemData = { id: 1, name: "En busca del sentido", price: "$2500", stock:10 , image: "https://books.google.com.ar/books/content?id=jlamxQEACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70idN2R2_ln7D1lK1Qolz5vXpALluL_7xxnfojx_ImtkdZNnXrN8jUxcmim2Z9Zu811Rl5SrIgYeS9ZbAooqKi4l3gvzy5or6c3PZJhbdSBGA77Jr-SgVKIXT5c7Cng7AZLuWIV"};
