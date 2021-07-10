@@ -24,11 +24,13 @@ export const ItemCount = ({ stock, clickAdd }) => {
                     +{" "}
                 </button>
             </div>
-            <div className="containerBotonAddCart">
-                <button onClick={() => clickAdd(count)}>
-                    <img src={cartPlus} alt="" />
-                </button>
-            </div>
+            {stock > 0 && (
+                <div className="containerBotonAddCart">
+                    <button onClick={() => clickAdd(count)}>
+                        <img src={cartPlus} alt="" />
+                    </button>
+                </div>
+            )}
         </>
     );
 };

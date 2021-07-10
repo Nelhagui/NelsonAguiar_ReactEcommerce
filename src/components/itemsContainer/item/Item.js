@@ -6,9 +6,8 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export const Item = ({ data }) => {
-    const { cart, addToCart } = useContext(CartContext);
+    const { addToCart } = useContext(CartContext);
     const clickAdd = (qty) => addToCart(data, qty);
-    console.log(cart);
     return (
         <>
             <div className="contentBook">
@@ -16,7 +15,9 @@ export const Item = ({ data }) => {
                     <img src={data.image} alt="" />
                     <p>{data.name}</p>
                 </Link>
-                <ItemCount stock={data.stock} clickAdd={clickAdd} />
+                {data.stock > 0 && (
+                    <ItemCount stock={data.stock} clickAdd={clickAdd} />
+                )}
             </div>
         </>
     );

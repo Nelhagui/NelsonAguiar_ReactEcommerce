@@ -6,12 +6,11 @@ import { Redirect } from "react-router-dom";
 
 export const Cart = () => {
     const { cart, clearCart } = useContext(CartContext);
-    console.log(cart);
     if (!cart.length) return <Redirect to="/" />;
     return (
         <div>
             {cart.map((item) => (
-                <h1>
+                <h1 key={item.id}>
                     Libro: {item.name} - {item.quantity}
                 </h1>
             ))}

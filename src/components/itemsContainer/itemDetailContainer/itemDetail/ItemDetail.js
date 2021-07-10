@@ -4,8 +4,7 @@ import { CartContext } from "../../../context/CartContext";
 import { ItemCount } from "../../itemCount/ItemCount";
 import "./ItemDetail.css";
 export const ItemDetail = ({ data }) => {
-    const { cart, addToCart } = useContext(CartContext);
-    console.log(cart);
+    const { addToCart } = useContext(CartContext);
     const clickAdd = (qty) => addToCart(data, qty);
     return (
         <>
