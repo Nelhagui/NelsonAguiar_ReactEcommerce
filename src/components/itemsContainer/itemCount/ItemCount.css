@@ -1,10 +1,10 @@
-.containerBotonCount{
+.containerBotonCount {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
-.btnCount{
+.btnCount {
     border: solid 1px rgb(199, 199, 199);
     width: 28px;
     height: 28px;
@@ -12,4 +12,26 @@
 }
 .containerBotonCount p {
     margin: 0 18px;
+}
+
+.containerBotonAddCart {
+    margin: 0.7rem 0;
+    width: 100%;
+}
+.containerBotonAddCart button {
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.containerBotonAddCart button:hover {
+    background-color: gainsboro;
+}
+
+img {
+}
+
+.containerBotonAddCart button img {
+    width: 25px;
+    height: 25px;
 }
