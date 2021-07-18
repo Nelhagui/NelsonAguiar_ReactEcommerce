@@ -1,21 +1,28 @@
 import React from "react";
+import { db } from "../../../firebase";
 import { ItemDetail } from "./itemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 
 export const ItemDetailContainer = ({ match }) => {
     const [detailMatch, setDetailMatch] = useState([]);
-    useEffect(() => {
-        fetch("https://mocki.io/v1/37f3a056-9a4f-4a2f-9f9b-17fb48ee962c")
-            .then((response) => response.json())
-            .then((res) => findMatch(res));
-
+    const getItem = () => {
         const findMatch = (res) => {
             const results = res.filter(function (detail) {
-                return +detail.id === +match.params.id;
+                return detail.id === match.params.id;
             });
             const firstObj = results.length > 0 ? results[0] : null;
             setDetailMatch(firstObj);
         };
+        const docs = [];
+        db.collection("items").onSnapshot((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                docs.push({ ...doc.data(), id: doc.id });
+            });
+            findMatch(docs);
+        });
+    };
+    useEffect(() => {
+        getItem();
     }, [match]);
 
     return (

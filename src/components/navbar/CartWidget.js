@@ -1,13 +1,27 @@
-import React from 'react'
-import icon from '../../assets/icon-cart.svg';
+import React from "react";
+import "./CartWidget.css";
+import { useContext } from "react";
+import icon from "../../assets/icon-cart.svg";
+import { CartContext } from "../context/CartContext";
 const CartWidget = () => {
-	return (
-		<div>
-			<img src={icon}  className="icon-cart" alt="icono-carrito"/>
-		</div>
-	)
-}
+    const { cart } = useContext(CartContext);
 
-export default CartWidget
+    function calcTotal() {
+        let totalItems = 0;
+        for (const item of cart) {
+            totalItems = totalItems + item.quantity;
+        }
+        return totalItems;
+    }
 
+    return (
+        calcTotal() > 0 && (
+            <div className="contentCartWidget">
+                <img src={icon} className="icon-cart" alt="icono-carrito" />
+                <p>({calcTotal()})</p>
+            </div>
+        )
+    );
+};
 
+export default CartWidget;
