@@ -5,10 +5,8 @@ import { ItemCount } from "../../itemCount/ItemCount";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 export const ItemDetail = ({ data }) => {
-    const { cart, addToCart, inCart } = useContext(CartContext);
+    const { addToCart, inCart } = useContext(CartContext);
     const clickAdd = (qty) => addToCart(data, qty);
-    console.log(data.id);
-    console.log(inCart(data.id));
 
     return (
         <>
