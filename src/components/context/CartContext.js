@@ -32,10 +32,9 @@ export const CartProvider = ({ children }) => {
 
     const getTotal = (dat) => {
         dat.map((item) => {
-            setTotalCart((totalCart + +item.price) * +item.quantity);
+            return setTotalCart((totalCart + +item.price) * +item.quantity);
         });
     };
-    console.log(totalCart);
 
     return (
         <CartContext.Provider

@@ -9,8 +9,6 @@ export const Checkout = () => {
     const { cart, totalCart, setStatePurchase, statePurchase } =
         useContext(CartContext);
     const [orderId, setOrderId] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [err, setErr] = useState(false);
     const createOrder = (data) => {
         const order = { buyer: data, items: cart, total: totalCart };
         const orders = db.collection("orders");
@@ -21,10 +19,7 @@ export const Checkout = () => {
                 setStatePurchase(true);
             })
             .catch((err) => {
-                setErr(err); // error
-            })
-            .finally(() => {
-                setLoading(false);
+                alert(err);
             });
     };
 

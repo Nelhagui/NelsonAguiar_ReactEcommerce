@@ -7,20 +7,12 @@ export const ItemDetailContainer = ({ match }) => {
     const [detailMatch, setDetailMatch] = useState([]);
     useEffect(() => {
         const getItem = () => {
-            const findMatch = (res) => {
-                const results = res.filter(function (detail) {
-                    return detail.id === match.params.id;
+            db.collection("items")
+                .doc(match.params.number)
+                .get()
+                .then((querySnapshot) => {
+                    setDetailMatch(querySnapshot.data());
                 });
-                const firstObj = results.length > 0 ? results[0] : null;
-                setDetailMatch(firstObj);
-            };
-            const docs = [];
-            db.collection("items").onSnapshot((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    docs.push({ ...doc.data(), id: doc.id });
-                });
-                findMatch(docs);
-            });
         };
         getItem();
     }, [match]);

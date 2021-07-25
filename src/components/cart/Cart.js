@@ -20,8 +20,8 @@ export const Cart = () => {
         return (
             <div>
                 <h1>Resumen:</h1>
-                {cart.map((item) => (
-                    <h1 key={item.id}>
+                {cart.map((item, index) => (
+                    <h1 key={index}>
                         Libro: {item.name} - {item.quantity} - {item.price}
                     </h1>
                 ))}

@@ -7,28 +7,22 @@ import "./CategoryListContainer.css";
 
 export const CategoryListContainer = ({ match }) => {
     const [itemsCategory, setItemsCategory] = useState([]);
-    const [allcategories, setAllCategories] = useState([]);
 
     useEffect(() => {
         const getItem = () => {
-            const findCategory = (res) => {
-                let hash = {};
-                let filterCategories = res.filter((o) =>
-                    hash[o.id_category] ? false : (hash[o.id_category] = true)
-                );
-                setAllCategories(filterCategories);
-                let results = res.filter(function (category) {
-                    return category.id_category === +match.params.categoryId;
-                });
-                setItemsCategory(results);
-            };
             const docs = [];
-            db.collection("items").onSnapshot((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    docs.push({ ...doc.data(), id: doc.id });
+            db.collection("items")
+                .where("id_category", "==", +match.params.categoryId)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        docs.push({ ...doc.data(), id: doc.id });
+                    });
+                    setItemsCategory(docs);
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
                 });
-                findCategory(docs);
-            });
         };
         getItem();
     }, [match]);
@@ -36,7 +30,7 @@ export const CategoryListContainer = ({ match }) => {
     return (
         <>
             <div className="categoryListContainer">
-                <NavCategoryListContainer allCategories={allcategories} />
+                <NavCategoryListContainer />
                 <ItemList items={itemsCategory} />
             </div>
         </>
