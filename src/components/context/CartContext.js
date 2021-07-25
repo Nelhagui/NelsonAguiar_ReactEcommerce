@@ -5,7 +5,6 @@ export const CartContext = createContext({});
 export const CartProvider = ({ children }) => {
     const [statePurchase, setStatePurchase] = useState(false);
     const [cart, setCart] = useState([]);
-    const [totalCart, setTotalCart] = useState(0);
     const clearCart = () => {
         setCart([]);
         setStatePurchase(false);
@@ -25,15 +24,8 @@ export const CartProvider = ({ children }) => {
             });
             setCart(newCart);
         } else {
-            setCart((prev) => [...prev, { ...item, quantity }]);
+            setCart([...cart, { ...item, quantity }]);
         }
-        getTotal(cart);
-    };
-
-    const getTotal = (dat) => {
-        dat.map((item) => {
-            return setTotalCart((totalCart + +item.price) * +item.quantity);
-        });
     };
 
     return (
@@ -44,7 +36,6 @@ export const CartProvider = ({ children }) => {
                 clearCart,
                 addToCart,
                 inCart,
-                totalCart,
                 statePurchase,
                 setStatePurchase,
             }}

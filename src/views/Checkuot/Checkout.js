@@ -6,11 +6,14 @@ import { CartContext } from "../../components/context/CartContext";
 import { db } from "../../firebase";
 
 export const Checkout = () => {
-    const { cart, totalCart, setStatePurchase, statePurchase } =
-        useContext(CartContext);
+    const { cart, setStatePurchase, statePurchase } = useContext(CartContext);
     const [orderId, setOrderId] = useState(false);
+
     const createOrder = (data) => {
-        const order = { buyer: data, items: cart, total: totalCart };
+        const acumular = (acumulador, item) =>
+            acumulador + item.price * item.quantity;
+        const totalValor = cart.reduce(acumular, 0);
+        const order = { buyer: data, items: cart, total: totalValor };
         const orders = db.collection("orders");
         orders
             .add(order)
