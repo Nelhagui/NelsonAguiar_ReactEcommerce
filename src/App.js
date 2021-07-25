@@ -8,6 +8,8 @@ import { Category } from "./views/Category/Category";
 import { NavBarCategory } from "./components/navBarCategory/NavBarCategory";
 import { CartProvider } from "./components/context/CartContext";
 import { Cart } from "./components/cart/Cart";
+import { Checkout } from "./views/Checkuot/Checkout";
+import { CheckoutResponse } from "./components/checkout/CheckoutResponse";
 
 function App() {
     return (
@@ -19,8 +21,17 @@ function App() {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/about" component={About} />
-                        <Route path="/detail/:id" component={ViewItemDetail} />
+                        <Route
+                            path="/detail/:number"
+                            component={ViewItemDetail}
+                        />
                         <Route path="/cart" component={Cart} />
+                        <Route path="/checkout" exact component={Checkout} />
+                        <Route
+                            path="/checkout/result/:orderNumber"
+                            exact
+                            component={CheckoutResponse}
+                        />
                         <Route
                             path="/category/:categoryId"
                             exact
