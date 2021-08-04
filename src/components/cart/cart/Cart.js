@@ -1,11 +1,14 @@
 import React from "react";
 import "./Cart.css";
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
+import { ItemCart } from "../itemCart/ItemCart";
+
 export const Cart = () => {
-    const { cart, clearCart, statePurchase } = useContext(CartContext);
+    const { cart, clearCart, statePurchase, totalValor } = useContext(CartContext);
+    console.log(cart)
     if (statePurchase) clearCart();
     if (!cart.length)
         return (
@@ -20,11 +23,10 @@ export const Cart = () => {
         return (
             <div>
                 <h1>Resumen:</h1>
-                {cart.map((item, index) => (
-                    <h1 key={index}>
-                        Libro: {item.name} - {item.quantity} - {item.price}
-                    </h1>
-                ))}
+                {cart.map((item, index) => {
+                    return <ItemCart key={index}  data={item}/>
+                })}
+                <p>Total: {totalValor} </p>
                 <button onClick={clearCart}>Vaciar carrito</button>
                 <Link to="/checkout">
                     <button>Siguiente</button>

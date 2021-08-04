@@ -14,6 +14,7 @@ export const ItemDetail = ({ data }) => {
                 <div className="ItemDetail">
                     <img src={data.image} alt="" />
                     <h1>{data.name}</h1>
+                    <h1>{data.stock}</h1>
                     <p>{data.price}</p>
                     <p>{data.description}</p>
                     {data.stock > 0 && !inCart(data.id) ? (
@@ -21,6 +22,8 @@ export const ItemDetail = ({ data }) => {
                             stock={data.stock}
                             clickAdd={clickAdd}
                         ></ItemCount>
+                       
+                        
                     ) : (
                         <Link to={"/cart"}>
                             <button>Finalizar Compra</button>
@@ -28,7 +31,7 @@ export const ItemDetail = ({ data }) => {
                     )}
                 </div>
             ) : (
-                <h1>No hay coincidencias</h1>
+                <h1>El producto que está buscando no existe.</h1>
             )}
         </>
     );
