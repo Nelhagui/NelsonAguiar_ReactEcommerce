@@ -16,7 +16,6 @@ export const ItemDetailContainer = ({ match }) => {
         };
         getItem();
     }, [match]);
-    console.log('resultado:', detailMatch);
 
     return (
         <div className="containerItemDetail">

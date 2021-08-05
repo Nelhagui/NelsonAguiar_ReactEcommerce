@@ -1,22 +1,19 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
-export const CheckoutResponse = ({ match}) => {
-    const {clearCart} = useContext(CartContext)
-    useEffect(() => {
-        clearCart();
-    }, [match])
-    
+export const CheckoutResponse = ({ match }) => {
+    const { statePurchase } = useContext(CartContext);
+
     return (
         <div>
             <h1>
-                {match.params.orderNumber !== "fail"
+                {statePurchase
                     ? "Compra exitosa"
                     : "Error al procesar la compra"}
             </h1>
             <p>
-                {match.params.orderNumber !== "fail"
+                {statePurchase
                     ? `Su número de orden es la siguiente "${match.params.orderNumber}"`
                     : "Por favor vuelva a intentarlo"}
             </p>

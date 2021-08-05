@@ -8,10 +8,9 @@ import { Category } from "./views/Category/Category";
 import { NavBarCategory } from "./components/navBarCategory/NavBarCategory";
 import { CartProvider } from "./components/context/CartContext";
 import { CategoriesProvider } from "./components/context/CategoriesContext";
-import { Cart } from "./components/cart/cart/Cart";
+import { Cart } from "./components/cart/Cart";
 import { Checkout } from "./views/Checkuot/Checkout";
 import { CheckoutResponse } from "./components/checkout/CheckoutResponse";
-import { HomeCategory } from "./views/Home/HomeCategory";
 
 function App() {
     return (
@@ -25,7 +24,7 @@ function App() {
                             <Route path="/" exact component={Home} />
                             <Route path="/about" component={About} />
                             <Route
-                                path="/item/:number"
+                                path="/detail/:number"
                                 component={ViewItemDetail}
                             />
                             <Route path="/cart" component={Cart} />
@@ -38,12 +37,6 @@ function App() {
                                 path="/checkout/result/:orderNumber"
                                 exact
                                 component={CheckoutResponse}
-                            />
-                            
-                            <Route
-                                path="/categories/:categoryId"
-                                exact
-                                component={HomeCategory}
                             />
                             <Route
                                 path="/category/:categoryId"

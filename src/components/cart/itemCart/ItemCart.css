@@ -1,8 +1,14 @@
 .itemCartContainer{
     display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.itemCartContainer p{
+    margin: 0;
 }
 .itemCartContainer img{
-    max-width: 95px;
+    max-width: 60px;
 }
 
 .detailProduct {
@@ -18,6 +24,9 @@
     text-align: left;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+.itemCartContainer .containerBotonCount p {
+    margin: 0.8rem;
 }

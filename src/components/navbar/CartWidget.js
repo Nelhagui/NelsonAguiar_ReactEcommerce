@@ -15,10 +15,12 @@ const CartWidget = () => {
     }
 
     return (
+        calcTotal() > 0 && (
             <div className="contentCartWidget">
                 <img src={icon} className="icon-cart" alt="icono-carrito" />
                 <p>({calcTotal()})</p>
             </div>
+        )
     );
 };
 
