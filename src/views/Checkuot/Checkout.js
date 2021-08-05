@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { FormCheckout } from "../../components/checkout/FormCheckout";
@@ -6,10 +5,9 @@ import { CartContext } from "../../components/context/CartContext";
 import { db } from "../../firebase";
 
 export const Checkout = () => {
-    const { cart, totalValor, clearCart } = useContext(CartContext);
+    const { cart, totalValor} = useContext(CartContext);
     const [orderId, setOrderId] = useState(false);
     const [statePurchase, setStatePurchase] = useState(false);
-    const [error, setError] = useState(false);
     console.log(cart.length)
 
     const createOrder = (data) => {
@@ -22,7 +20,7 @@ export const Checkout = () => {
                 setStatePurchase(true);
             })
             .catch((err) => {
-                setError(err);
+                alert(err);
             });
     };
 

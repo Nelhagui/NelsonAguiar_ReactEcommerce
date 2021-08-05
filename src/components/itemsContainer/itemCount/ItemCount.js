@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import cartPlus from "../../../assets/cart-plus.svg";
 import "./ItemCount.css";
+import { Button } from "@material-ui/core";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 export const ItemCount = ({ stock, clickAdd }) => {
     const [count, setCount] = useState(0);
@@ -25,11 +26,15 @@ export const ItemCount = ({ stock, clickAdd }) => {
                 </button>
             </div>
             {stock > 0 && (
-                <div className="containerBotonAddCart">
-                    <button onClick={() => clickAdd(count)}>
-                        <img src={cartPlus} alt="" />
-                    </button>
-                </div>
+                <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                startIcon={<ShoppingCartIcon />}
+                onClick={() => clickAdd(count)}
+              >
+                Agregar al carrito
+              </Button>
             )}
         </>
     );

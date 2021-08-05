@@ -21,16 +21,20 @@ export const Cart = () => {
         );
     else
         return (
-            <div>
+            <div className="cardContainerCart">
                 <h1>Resumen:</h1>
-                {cart.map((item, index) => {
-                    return <ItemCart key={index}  data={item}/>
-                })}
-                <p>Total: {totalValor} </p>
-                <button onClick={clearCart}>Vaciar carrito</button>
-                <Link to="/checkout">
-                    <button>Siguiente</button>
-                </Link>
+                <div className="cardContainerItems">
+                    {cart.map((item, index) => {
+                        return <ItemCart key={index}  data={item}/>
+                    })}
+                </div>
+                <div className="containerSummaryCart">
+                    <p>Total: {totalValor} </p>
+                    <button onClick={clearCart}>Vaciar carrito</button>
+                    <Link to="/checkout">
+                        <button>Siguiente</button>
+                    </Link>
+                </div>
             </div>
         );
 };

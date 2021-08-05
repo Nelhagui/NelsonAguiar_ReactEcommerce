@@ -13,9 +13,9 @@ export const ItemCart = ({data}) => {
                 <p>{data.description}</p>
                 
             </div>
-            <p> Cantidad: {data.quantity} x {data.price}</p>
-            <ItemCountCart stock={data.stock} cantSelect={data.quantity} data={data}/>
-            <p> subtotal: {data.quantity * data.price}</p>
+            <p> ${data.price}</p>
+            <ItemCountCart stock={data.stock} cantSelect={data.quantity} data={data} />
+            <p>${data.quantity * data.price}</p>
             <ItemDelete item={data}/>
 
         </div>

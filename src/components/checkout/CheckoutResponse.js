@@ -1,12 +1,6 @@
 import React from "react";
-import { useContext, useEffect } from "react";
-import { CartContext } from "../context/CartContext";
 
 export const CheckoutResponse = ({ match}) => {
-    const {clearCart} = useContext(CartContext)
-    useEffect(() => {
-        clearCart();
-    }, [match])
     
     return (
         <div>
