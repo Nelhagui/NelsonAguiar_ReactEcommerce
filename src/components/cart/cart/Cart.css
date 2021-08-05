@@ -30,3 +30,6 @@ img.icon-clear-cart {
     margin-right: 1rem;
     margin-bottom: 0;
 }
+.containerSummaryCart img {
+    max-width: 35px;
+}

@@ -1,20 +1,17 @@
 import { createContext, useState } from "react";
-
 export const CartContext = createContext({});
 
 export const CartProvider = ({ children }) => {
-    
     const [cart, setCart] = useState([]);
     const clearCart = () => {
         setCart([]);
     };
     const clearItemFromCart = (item) => {
-        const result = cart.filter(cartItem => cartItem.id !== item.id);
+        const result = cart.filter((cartItem) => cartItem.id !== item.id);
         setCart(result);
-    }
+    };
     const inCart = (id) => cart.some((item) => item.id === id);
     const addToCart = (item, quantity) => {
-        console.log('quan in addtocart = ', quantity)
         if (inCart(item.id)) {
             const newCart = cart.map((cartItem) => {
                 if (cartItem.id === item.id) {
@@ -27,15 +24,13 @@ export const CartProvider = ({ children }) => {
                 }
             });
             setCart(newCart);
-            console.log('1 aqui')
         } else {
-            console.log('aqui')
             setCart([...cart, { ...item, quantity }]);
         }
     };
 
     const acumular = (acumulador, item) =>
-            acumulador + item.price * item.quantity;
+        acumulador + item.price * item.quantity;
     const totalValor = cart.reduce(acumular, 0);
 
     return (
@@ -47,7 +42,7 @@ export const CartProvider = ({ children }) => {
                 addToCart,
                 inCart,
                 totalValor,
-                clearItemFromCart
+                clearItemFromCart,
             }}
         >
             {children}

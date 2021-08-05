@@ -5,10 +5,9 @@ import { CartContext } from "../../components/context/CartContext";
 import { db } from "../../firebase";
 
 export const Checkout = () => {
-    const { cart, totalValor} = useContext(CartContext);
+    const { cart, totalValor } = useContext(CartContext);
     const [orderId, setOrderId] = useState(false);
     const [statePurchase, setStatePurchase] = useState(false);
-    console.log(cart.length)
 
     const createOrder = (data) => {
         const order = { buyer: data, items: cart, total: totalValor };
@@ -24,12 +23,11 @@ export const Checkout = () => {
             });
     };
 
-    return statePurchase === true ? 
-    (   
-        <Redirect to={`/checkout/result/${orderId}`}/>   
-    ) 
-    : 
-    (
-        cart.length > 0 ? <FormCheckout createOrder={createOrder} /> : <Redirect to={`/`}/>    
+    return statePurchase === true ? (
+        <Redirect to={`/checkout/result/${orderId}`} />
+    ) : cart.length > 0 ? (
+        <FormCheckout createOrder={createOrder} />
+    ) : (
+        <Redirect to={`/`} />
     );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { db } from "../../../firebase";
 import { ItemDetail } from "./itemDetail/ItemDetail";
 import { useState, useEffect } from "react";
+import "./ItemDetailContainer.css";
 
 export const ItemDetailContainer = ({ match }) => {
     const [detailMatch, setDetailMatch] = useState([]);

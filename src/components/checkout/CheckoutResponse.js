@@ -1,12 +1,12 @@
 import React from "react";
+import "./CheckoutResponse.css";
 
-export const CheckoutResponse = ({ match}) => {
-    
+export const CheckoutResponse = ({ match }) => {
     return (
-        <div>
+        <div className="containerCheckOutResponse">
             <h1>
                 {match.params.orderNumber !== "fail"
-                    ? "Compra exitosa"
+                    ? "¡Compra exitosa!"
                     : "Error al procesar la compra"}
             </h1>
             <p>
