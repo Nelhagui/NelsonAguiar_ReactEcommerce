@@ -11,7 +11,7 @@ export const Item = ({ data }) => {
     return (
         <>
             <div className="contentBook">
-                <Link to={`/detail/${data.id}`}>
+                <Link to={`/item/${data.id}`}>
                     <img src={data.image} alt="" />
                     <p>{data.name}</p>
                 </Link>

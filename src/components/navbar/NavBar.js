@@ -2,25 +2,15 @@ import React from "react";
 import "./Navbar.css";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import DropdownCategories from "./DropdownCategories";
 
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg containerNavBar">
             <div className="container">
-                <a className="navbar-brand" href="/">
+                <Link to="/" className="navbar-brand">
                     Mi logo
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+                </Link>
                 <div
                     className="collapse navbar-collapse"
                     id="navbarSupportedContent"
@@ -32,6 +22,7 @@ const NavBar = () => {
                         <Link to="/contac" className="nav-item nav-link tfont3">
                             Contact
                         </Link>
+                        <DropdownCategories />
                     </ul>
                 </div>
             </div>

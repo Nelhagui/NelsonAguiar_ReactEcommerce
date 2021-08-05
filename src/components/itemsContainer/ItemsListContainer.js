@@ -17,7 +17,7 @@ export const ItemsListContainer = ({ titleSeccion }) => {
     };
     useEffect(() => {
         getItems();
-    });
+    }, []);
 
     return (
         <>

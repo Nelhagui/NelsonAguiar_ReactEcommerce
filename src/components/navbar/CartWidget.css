@@ -1,3 +1,7 @@
 .contentCartWidget {
-    margin-right: 1rem !important;
+    display: flex;
+    margin-right: 2rem;
+}
+.contentCartWidget p {
+    margin: 0;
 }

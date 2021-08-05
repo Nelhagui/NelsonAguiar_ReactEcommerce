@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { FormCheckout } from "../../components/checkout/FormCheckout";
@@ -6,13 +6,13 @@ import { CartContext } from "../../components/context/CartContext";
 import { db } from "../../firebase";
 
 export const Checkout = () => {
-    const { cart, setStatePurchase, statePurchase } = useContext(CartContext);
+    const { cart, totalValor, clearCart } = useContext(CartContext);
     const [orderId, setOrderId] = useState(false);
+    const [statePurchase, setStatePurchase] = useState(false);
+    const [error, setError] = useState(false);
+    console.log(cart.length)
 
     const createOrder = (data) => {
-        const acumular = (acumulador, item) =>
-            acumulador + item.price * item.quantity;
-        const totalValor = cart.reduce(acumular, 0);
         const order = { buyer: data, items: cart, total: totalValor };
         const orders = db.collection("orders");
         orders
@@ -22,17 +22,16 @@ export const Checkout = () => {
                 setStatePurchase(true);
             })
             .catch((err) => {
-                alert(err);
+                setError(err);
             });
     };
 
-    return cart.length > 0 ? (
-        statePurchase ? (
-            <Redirect to={`/checkout/result/${orderId}`} />
-        ) : (
-            <FormCheckout createOrder={createOrder} />
-        )
-    ) : (
-        <Redirect to="/" />
+    return statePurchase === true ? 
+    (   
+        <Redirect to={`/checkout/result/${orderId}`}/>   
+    ) 
+    : 
+    (
+        cart.length > 0 ? <FormCheckout createOrder={createOrder} /> : <Redirect to={`/`}/>    
     );
 };
