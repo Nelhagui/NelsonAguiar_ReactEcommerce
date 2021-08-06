@@ -1,9 +1,9 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { db } from '../../../firebase';
-import { ItemList } from '../itemList/ItemList';
+import React from "react";
+import { useState, useEffect } from "react";
+import { db } from "../../../firebase";
+import { ItemList } from "../itemList/ItemList";
 
-export const ItemsListContainerCategory = ({match}) => {
+export const ItemsListContainerCategory = ({ match }) => {
     const [itemsCategory, setItemsCategory] = useState([]);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export const ItemsListContainerCategory = ({match}) => {
                     setItemsCategory(docs);
                 })
                 .catch((error) => {
-                    console.log("Error getting documents: ", error);
+                    alert("Error getting documents: ", error);
                 });
         };
         getItem();
@@ -32,4 +32,4 @@ export const ItemsListContainerCategory = ({match}) => {
             </div>
         </>
     );
-}
+};

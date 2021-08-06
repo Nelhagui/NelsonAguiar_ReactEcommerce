@@ -4,7 +4,7 @@ import { CartContext } from "../../context/CartContext";
 import "./ItemCountCart.css";
 
 export const ItemCountCart = ({ stock, cantSelect, data }) => {
-    const {addToCart} = useContext(CartContext)
+    const { addToCart } = useContext(CartContext);
     const [count, setCount] = useState(cantSelect);
     const countDown = () => {
         if (count > 1) setCount(count - 1);
@@ -12,10 +12,10 @@ export const ItemCountCart = ({ stock, cantSelect, data }) => {
     const countUp = () => {
         if (count < stock) setCount(count + 1);
     };
-    
+
     useEffect(() => {
-        addToCart(data, count)
-    }, [count])
+        addToCart(data, count);
+    }, [count]);
 
     return (
         <>

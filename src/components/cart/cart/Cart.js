@@ -9,15 +9,15 @@ import iconClarCart from "../../../assets/icon-clear-cart.png";
 import { ItemCart } from "../itemCart/ItemCart";
 
 export const Cart = () => {
-    const { cart, clearCart, statePurchase, totalValor } =
-        useContext(CartContext);
-    if (statePurchase) clearCart();
+    const { cart, clearCart, totalValor } = useContext(CartContext);
     if (!cart.length)
         return (
             <div>
                 <h1>No hay items seleccionados</h1>
                 <Link to="/">
-                    <button>Ir a comprar</button>
+                    <Button variant="outlined" color="primary">
+                        Ir a comprar
+                    </Button>
                 </Link>
             </div>
         );

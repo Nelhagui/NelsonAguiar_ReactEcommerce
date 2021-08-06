@@ -3,6 +3,7 @@ export const CartContext = createContext({});
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    const [statePurchase, setStatePurchase] = useState(false);
     const clearCart = () => {
         setCart([]);
     };
@@ -43,6 +44,8 @@ export const CartProvider = ({ children }) => {
                 inCart,
                 totalValor,
                 clearItemFromCart,
+                statePurchase,
+                setStatePurchase,
             }}
         >
             {children}

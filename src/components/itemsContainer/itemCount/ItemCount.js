@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./ItemCount.css";
 import { Button } from "@material-ui/core";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 export const ItemCount = ({ stock, clickAdd }) => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
     const countDown = () => {
         if (count > 0) setCount(count - 1);
     };
@@ -27,14 +27,14 @@ export const ItemCount = ({ stock, clickAdd }) => {
             </div>
             {stock > 0 && (
                 <Button
-                variant="outlined"
-                color="primary"
-                size="small"
-                startIcon={<ShoppingCartIcon />}
-                onClick={() => clickAdd(count)}
-              >
-                Agregar al carrito
-              </Button>
+                    variant="outlined"
+                    color="primary"
+                    size="small"
+                    startIcon={<ShoppingCartIcon />}
+                    onClick={() => clickAdd(count)}
+                >
+                    Agregar al carrito
+                </Button>
             )}
         </>
     );
